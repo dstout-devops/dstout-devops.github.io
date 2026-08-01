@@ -31,6 +31,17 @@
   /* amber  on white */
   --accent-answer: oklch(0.46 0.12 195);
   /* teal   on white */
+
+  /* Ambient light sources, borrowed from the VS Code palette. They sit
+     off-canvas and are never mirrored — different hues, sizes and distances,
+     because an even glow reads as a vignette and a vignette reads as a
+     filter. On white these have to be far weaker than they feel like they
+     should be; anything stronger turns the page pastel. */
+  --glow-magenta: oklch(0.7 0.19 335 / 0.055);
+  --glow-cyan: oklch(0.75 0.13 205 / 0.05);
+  --glow-green: oklch(0.8 0.15 150 / 0.04);
+  --glow-violet: oklch(0.62 0.19 285 / 0.045);
+  --grain: 0.022;
 }
 
 .dark {
@@ -46,6 +57,12 @@
   --accent-cluster: oklch(0.72 0.15 300);
   --accent-coach: oklch(0.76 0.14 60);
   --accent-answer: oklch(0.74 0.11 195);
+
+  --glow-magenta: oklch(0.62 0.22 330 / 0.22);
+  --glow-cyan: oklch(0.68 0.14 205 / 0.16);
+  --glow-green: oklch(0.72 0.16 152 / 0.12);
+  --glow-violet: oklch(0.55 0.2 285 / 0.18);
+  --grain: 0.045;
 }
 
 @theme inline {
@@ -87,6 +104,54 @@
     outline-offset: 3px;
     border-radius: 2px;
   }
+}
+
+/* Four light sources sitting outside the viewport, so what reaches the page
+   is the falloff rather than the source. Every one has a different hue,
+   radius and offset: the moment two of them match, the eye reads a
+   symmetrical vignette and the whole thing looks like a filter dropped over
+   the page instead of light coming from somewhere. */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(36rem 28rem at 0% -10%, var(--glow-magenta), transparent 62%),
+    radial-gradient(28rem 24rem at 104% 2%, var(--glow-cyan), transparent 60%),
+    radial-gradient(38rem 24rem at 78% 110%, var(--glow-green), transparent 62%),
+    radial-gradient(24rem 34rem at -12% 76%, var(--glow-violet), transparent 60%);
+}
+
+/* The other half of the reference: the sharing badge's magenta-green-cyan
+   edge. One hairline at the very top, and nowhere else \u2014 it works because it
+   is the only hard-edged colour on the page, so repeating it would spend the
+   thing that makes it read as a signature. */
+.ambient::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  opacity: 0.75;
+  background: linear-gradient(
+    90deg,
+    oklch(0.62 0.24 330),
+    oklch(0.55 0.22 285),
+    oklch(0.7 0.14 205),
+    oklch(0.75 0.17 152)
+  );
+}
+
+/* Wide, soft gradients over a near-flat dark background band, and banding is
+   what read as dashed brackets the last time this was tried. Grain is the
+   fix: it dithers the ramp so the steps have nowhere to line up. It is also
+   the only reason the gradients can be this large. */
+.ambient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Flipping the theme animates every colour on the page at once, which reads

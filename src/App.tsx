@@ -8,6 +8,7 @@ export default function App() {
 
   return (
     <div className="mx-auto min-h-dvh max-w-3xl px-6 sm:px-8">
+      <div className="ambient" aria-hidden="true" />
       <a
         href="#work"
         className="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded-lg focus:border focus:bg-[color:var(--background)] focus:px-4 focus:py-2"
