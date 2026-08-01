@@ -172,7 +172,7 @@ export function render(content) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${e(candidate.name)} — platform engineering</title>
-    <meta name="description" content="${e(candidate.headline || "Four projects, each led by the problem it removed.")}" />
+    <meta name="description" content="${e(candidate.headline || "Most complexity is misunderstanding wearing a costume.")}" />
     <link rel="canonical" href="https://dstout-devops.github.io/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
@@ -221,11 +221,41 @@ export function render(content) {
         <h1 class="max-w-[19ch] text-[2rem] leading-[1.06] font-extrabold tracking-[-0.02em] text-balance sm:text-[3.25rem]">
           The work is finding the smaller problem.
         </h1>
-        <div class="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-[color:var(--muted-foreground)] sm:text-lg">
+        <div class="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-[color:var(--muted-foreground)] sm:text-lg">
           <p>
-            Anyone can add another integration. The harder and more valuable move is noticing that
-            the integration should not have been necessary — that the thing being solved by hand,
-            over and over, has one shape underneath it, and that shape can be named once.
+            Most complexity is misunderstanding wearing a costume. When a system can only be
+            described in its own jargon, that is rarely because the domain is genuinely hard. It is
+            because nobody has worked out yet what the actual problem is, and a pile of workarounds
+            is standing in for the answer.
+          </p>
+          <figure class="border-l-2 border-[color:var(--primary)] pl-5">
+            <blockquote class="text-[color:var(--foreground)]">
+              It can scarcely be denied that the supreme goal of all theory is to make the
+              irreducible basic elements as simple and as few as possible
+              <em class="not-italic underline decoration-[color:var(--primary)] decoration-2 underline-offset-4">
+                without having to surrender the adequate representation of a single datum of
+                experience</em>.
+            </blockquote>
+            <figcaption class="mt-3 font-mono text-xs">
+              Albert Einstein, <cite class="not-italic">On the Method of Theoretical Physics</cite>,
+              the Herbert Spencer Lecture, Oxford, 10 June 1933
+            </figcaption>
+          </figure>
+          <p>
+            The underlined half is the whole discipline, and it is the half that gets dropped.
+            Anyone can make a system simpler by ignoring the cases that are inconvenient. That is
+            not simplification, it is deferral — the ignored case comes back as an exception, then
+            as a workaround, then as a runbook, and eventually as the reason nobody can explain how
+            any of it works. The bar is the fewest parts that still represent every real case.
+          </p>
+          <p>
+            So the first job never changes: find the real problem, name it in plain language, and
+            check the explanation survives contact with someone outside the team. If it cannot be
+            said simply it is not understood yet, and anything built before that point is an
+            expensive way to be wrong. That matters more now, not less. When writing the code stops
+            being the constraint, the constraint becomes knowing which code is worth writing.
+            Nobody is short of output any more; what is scarce is someone who can look at a tangle
+            and say what it is actually made of.
           </p>
           <p>
             Below are ${totals.public_projects} projects, each led by why it exists rather than what
