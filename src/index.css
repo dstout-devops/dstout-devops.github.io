@@ -1,9 +1,10 @@
-/* Syne carries the headings. It is a geometric grotesque with enough
-   personality to be recognisable and enough restraint to stay readable at
-   paragraph length, which is the whole brief for this site.
+/* Geist, with Geist Mono as its designed companion. Syne was here first and
+   was the wrong call: it is wide and mannered enough that the headline needed
+   four lines where every alternative needed two, and a display face that
+   argues with a page about removing complexity is arguing with the page.
    Declared above the Tailwind import because @import must precede all rules,
    and Tailwind's expands into thousands of them. */
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -55,8 +56,8 @@
   --color-border: var(--border);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
   --radius-lg: var(--radius);
 }
 

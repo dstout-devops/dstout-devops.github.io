@@ -21,7 +21,7 @@ export default function App() {
       </header>
 
       <section className="py-12 sm:py-20">
-        <h1 className="max-w-[15ch] text-[2rem] leading-[1.08] font-extrabold tracking-tight text-balance sm:text-5xl">
+        <h1 className="max-w-[19ch] text-[2rem] leading-[1.06] font-extrabold tracking-[-0.02em] text-balance sm:text-[3.25rem]">
           The work is finding the smaller problem.
         </h1>
         <div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-[color:var(--muted-foreground)] sm:text-lg">
