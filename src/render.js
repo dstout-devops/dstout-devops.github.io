@@ -178,7 +178,7 @@ export function render(content) {
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dstout-devops.github.io/" />
     <meta property="og:title" content="${e(candidate.name)} — platform engineering" />
-    <meta property="og:description" content="The work is finding the smaller problem." />
+    <meta property="og:description" content="Most complexity is misunderstanding wearing a costume." />
     <meta name="twitter:card" content="summary" />
     <meta name="color-scheme" content="light dark" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -219,7 +219,7 @@ export function render(content) {
       <section class="py-12 sm:py-20">
         ${candidate.headline ? `<p class="mb-5 max-w-xl text-sm font-medium text-[color:var(--primary)] sm:text-base">${e(candidate.headline)}</p>` : ""}
         <h1 class="max-w-[19ch] text-[2rem] leading-[1.06] font-extrabold tracking-[-0.02em] text-balance sm:text-[3.25rem]">
-          The work is finding the smaller problem.
+          Understanding is the work.
         </h1>
         <div class="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-[color:var(--muted-foreground)] sm:text-lg">
           <p>
