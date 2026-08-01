@@ -120,53 +120,77 @@
 
 /* Each source is its own layer so each can breathe on its own clock. One
    animation across the whole background would pump every corner in unison,
-   which is a heartbeat rather than a room. The periods below are primes, so
-   the four never realign into a pattern you could catch; a full breath takes
-   between forty seconds and a minute, which is slow enough that you notice
-   the page changed rather than watching it change. */
+   which is a heartbeat rather than a room. The periods are primes so the four
+   never realign into a pattern you could catch. Note these are one direction,
+   not one breath: `alternate` means a round trip costs double, which is how
+   the first attempt ended up at four minutes a cycle and looked frozen. */
 .glow {
   position: absolute;
-  inset: 0;
+  /* Half a viewport of overscan in every direction. At inset 0 the layer's own
+     boundary clips its gradient, so translating one slid a hard edge into
+     frame and left unlit black behind it. Travel tops out at 10vw, so 25%
+     spare on each side means the edge of the light is always well past the
+     edge of the screen.
+
+     Positions below are therefore in layer coordinates, not viewport ones:
+     the layer starts a quarter-viewport above and left of the screen, so
+     viewport p% sits at 16.67% + 0.667p%. The screen's four corners are at
+     16.67% and 83.33%. */
+  inset: -25%;
   animation: breathe var(--period) ease-in-out var(--phase) infinite alternate;
 }
 
 .glow-magenta {
-  --period: 79s;
-  --phase: -13s;
-  background: radial-gradient(36rem 28rem at 0% -10%, var(--glow-magenta), transparent 62%);
+  --period: 31s;
+  --phase: -7s;
+  --dx: 9vw;
+  --dy: 6vh;
+  /* viewport 0% -10% */
+  background: radial-gradient(36rem 28rem at 16.7% 10%, var(--glow-magenta), transparent 62%);
 }
 
 .glow-cyan {
-  --period: 97s;
-  --phase: -41s;
-  background: radial-gradient(28rem 24rem at 104% 2%, var(--glow-cyan), transparent 60%);
+  --period: 37s;
+  --phase: -19s;
+  --dx: -7vw;
+  --dy: 9vh;
+  /* viewport 104% 2% */
+  background: radial-gradient(28rem 24rem at 86% 18%, var(--glow-cyan), transparent 60%);
 }
 
 .glow-green {
-  --period: 113s;
-  --phase: -67s;
-  background: radial-gradient(38rem 24rem at 78% 110%, var(--glow-green), transparent 62%);
+  --period: 43s;
+  --phase: -29s;
+  --dx: -10vw;
+  --dy: -6vh;
+  /* viewport 78% 110% */
+  background: radial-gradient(38rem 24rem at 68.7% 90%, var(--glow-green), transparent 62%);
 }
 
 .glow-violet {
-  --period: 131s;
-  --phase: -23s;
-  background: radial-gradient(24rem 34rem at -12% 76%, var(--glow-violet), transparent 60%);
+  --period: 53s;
+  --phase: -11s;
+  --dx: 8vw;
+  --dy: -9vh;
+  /* viewport -12% 76% */
+  background: radial-gradient(24rem 34rem at 8.7% 67.3%, var(--glow-violet), transparent 60%);
 }
 
-/* The amplitude has to be small enough that you cannot catch it moving, only
-   notice afterwards that it did. Opacity does the work; the scale is there so
-   the falloff edge shifts by a few pixels a minute rather than sitting
-   perfectly still, which is what makes a static gradient look printed on. */
+/* Distance, not dimming. A faint gradient fading in place sits under the
+   threshold at which the eye notices anything at all — the first attempt was
+   invisible over a full minute. What does register is the falloff edge
+   crossing something, so each source now travels a tenth of the viewport on
+   its own vector. The opacity swing rides along to keep the arrival and
+   departure from having hard ends. */
 @keyframes breathe {
   from {
-    opacity: 0.72;
-    transform: scale(1);
+    opacity: 0.45;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 
   to {
     opacity: 1;
-    transform: scale(1.06);
+    transform: translate3d(var(--dx), var(--dy), 0) scale(1.12);
   }
 }
 
