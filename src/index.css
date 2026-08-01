@@ -1,0 +1,126 @@
+/* Syne carries the headings. It is a geometric grotesque with enough
+   personality to be recognisable and enough restraint to stay readable at
+   paragraph length, which is the whole brief for this site.
+   Declared above the Tailwind import because @import must precede all rules,
+   and Tailwind's expands into thousands of them. */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.16 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.48 0 0);
+  --border: oklch(0.91 0 0);
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.99 0 0);
+
+  /* One accent per case study. These are rules, dots and hovers — never
+     text — so 3:1 is the bar that applies, and every one of them clears it
+     against the background it actually renders on. */
+  --accent-estate: oklch(0.45 0.18 260);
+  /* blue   on white */
+  --accent-cluster: oklch(0.47 0.16 300);
+  /* purple on white */
+  --accent-coach: oklch(0.48 0.15 40);
+  /* amber  on white */
+  --accent-answer: oklch(0.46 0.12 195);
+  /* teal   on white */
+}
+
+.dark {
+  --background: oklch(0.16 0 0);
+  --foreground: oklch(0.97 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --border: oklch(0.28 0 0);
+  --primary: oklch(0.66 0.18 260);
+  --primary-foreground: oklch(0.16 0 0);
+
+  --accent-estate: oklch(0.7 0.16 260);
+  --accent-cluster: oklch(0.72 0.15 300);
+  --accent-coach: oklch(0.76 0.14 60);
+  --accent-answer: oklch(0.74 0.11 195);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius-lg: var(--radius);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-display);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* Flipping the theme animates every colour on the page at once, which reads
+   as a smear rather than a transition. The switch adds this class for a
+   frame, so the change lands instantly and everything else keeps easing. */
+.no-transitions,
+.no-transitions * {
+  transition: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

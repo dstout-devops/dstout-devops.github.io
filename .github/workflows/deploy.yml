@@ -1,0 +1,62 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# A queued run should replace the one behind it rather than wait for it,
+# but never cancel a deploy that has already started touching Pages.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse to publish anything that looks private
+        run: |
+          # The evidence sheet that decides what may be published lives in a
+          # private repository, so the real gate runs before content.json is
+          # committed. This is the backstop: the few patterns that are never
+          # publishable no matter which sheet produced them.
+          if grep -rIn --exclude-dir=.git --exclude-dir=node_modules \
+              -E '\bE[0-9]{6}\b|[a-z0-9][a-z0-9-]*\.[a-z0-9-]+\.(int|corp|internal)\b|\b(bitbucket|local):' .; then
+            echo "::error::Found something that must not be published."
+            exit 1
+          fi
+          echo "Nothing private found."
+
+  build:
+    needs: guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

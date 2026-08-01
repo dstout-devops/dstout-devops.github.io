@@ -1,0 +1,425 @@
+{
+  "candidate": {
+    "links": {
+      "github": "https://github.com/dstout-devops",
+      "linkedin": "https://www.linkedin.com/in/danstout"
+    },
+    "name": "Dan Stout"
+  },
+  "capabilities": [
+    {
+      "level": "proficient",
+      "name": "Docker",
+      "repositories": 22
+    },
+    {
+      "level": "proficient",
+      "name": "Shell",
+      "repositories": 16
+    },
+    {
+      "level": "proficient",
+      "name": "Testing",
+      "repositories": 11
+    },
+    {
+      "level": "working",
+      "name": "Docker Compose",
+      "repositories": 10
+    },
+    {
+      "level": "proficient",
+      "name": "Go",
+      "repositories": 8
+    },
+    {
+      "level": "proficient",
+      "name": "GitHub Actions",
+      "repositories": 7
+    },
+    {
+      "level": "familiar",
+      "name": "HTML",
+      "repositories": 7
+    },
+    {
+      "level": "proficient",
+      "name": "Python",
+      "repositories": 6
+    },
+    {
+      "level": "working",
+      "name": "Helm",
+      "repositories": 5
+    },
+    {
+      "level": "working",
+      "name": "Pytest",
+      "repositories": 5
+    },
+    {
+      "level": "proficient",
+      "name": "SQL",
+      "repositories": 5
+    },
+    {
+      "level": "proficient",
+      "name": "HCL",
+      "repositories": 4
+    },
+    {
+      "level": "familiar",
+      "name": "JavaScript",
+      "repositories": 4
+    },
+    {
+      "level": "proficient",
+      "name": "Terraform",
+      "repositories": 4
+    },
+    {
+      "level": "proficient",
+      "name": "TypeScript",
+      "repositories": 4
+    },
+    {
+      "level": "working",
+      "name": "gRPC",
+      "repositories": 4
+    },
+    {
+      "level": "working",
+      "name": "CSS",
+      "repositories": 3
+    },
+    {
+      "level": "familiar",
+      "name": "Database Migrations",
+      "repositories": 3
+    },
+    {
+      "level": "familiar",
+      "name": "Go Template",
+      "repositories": 3
+    },
+    {
+      "level": "working",
+      "name": "OpenTelemetry",
+      "repositories": 3
+    },
+    {
+      "level": "working",
+      "name": "PLpgSQL",
+      "repositories": 3
+    },
+    {
+      "level": "working",
+      "name": "PostgreSQL",
+      "repositories": 3
+    },
+    {
+      "level": "familiar",
+      "name": "Protocol Buffers",
+      "repositories": 3
+    },
+    {
+      "level": "working",
+      "name": "AWS",
+      "repositories": 2
+    },
+    {
+      "level": "working",
+      "name": "Dart",
+      "repositories": 2
+    },
+    {
+      "level": "working",
+      "name": "Flutter",
+      "repositories": 2
+    },
+    {
+      "level": "familiar",
+      "name": "Jinja2",
+      "repositories": 2
+    },
+    {
+      "level": "familiar",
+      "name": "Kubernetes",
+      "repositories": 2
+    },
+    {
+      "level": "familiar",
+      "name": "Nginx",
+      "repositories": 2
+    },
+    {
+      "level": "familiar",
+      "name": "Prometheus",
+      "repositories": 2
+    },
+    {
+      "level": "familiar",
+      "name": "React",
+      "repositories": 2
+    },
+    {
+      "level": "",
+      "name": "AWS CDK",
+      "repositories": 1
+    },
+    {
+      "level": "proficient",
+      "name": "Ansible",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "C",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "C#",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "C++",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "CMake",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Cilium",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Firebase",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Flutter Bloc",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "HLSL",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "HashiCorp Vault",
+      "repositories": 1
+    },
+    {
+      "level": "working",
+      "name": "KCL",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "Kotlin",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Kustomize",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Node.js",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "Objective-C",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "OpenTofu",
+      "repositories": 1
+    },
+    {
+      "level": "working",
+      "name": "PowerShell",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Redis",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Rego",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "Ruby",
+      "repositories": 1
+    },
+    {
+      "level": "working",
+      "name": "ShaderLab",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "Smarty",
+      "repositories": 1
+    },
+    {
+      "level": "",
+      "name": "Swift",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Terragrunt",
+      "repositories": 1
+    },
+    {
+      "level": "familiar",
+      "name": "Traefik",
+      "repositories": 1
+    },
+    {
+      "level": "working",
+      "name": "cert-manager",
+      "repositories": 1
+    }
+  ],
+  "generated_at": "2026-08-01T01:35:00+00:00",
+  "projects": [
+    {
+      "link": "https://github.com/dstout-devops/forge-of-prospects",
+      "name": "Forge Of Prospects",
+      "problem": "Getting young athletes to train consistently competes directly with the phone in their pocket, and it is consistency rather than ability that they drop out over.",
+      "scale": "Coach attention is the scarce resource and it does not scale past the session. Team management and visible standings keep the competition running between sessions, so the motivation does not depend on a coach being in the room.",
+      "simplification": "Put the thing that makes them want to train on the device that was competing for their attention: training as quests, progression as ranks, teammates to compete against.",
+      "slug": "forge-of-prospects",
+      "summary": "A Flutter client over a Go backend with PLpgSQL database code, built through a Taskfile, containerised with Docker Compose, and released by separate frontend and backend GitHub Actions workflows.",
+      "tech": [
+        "Dart",
+        "Database Migrations",
+        "Docker",
+        "Docker Compose",
+        "Firebase",
+        "Flutter",
+        "Flutter Bloc",
+        "GitHub Actions",
+        "Go",
+        "HTML",
+        "Nginx",
+        "OpenTelemetry",
+        "PLpgSQL",
+        "PostgreSQL",
+        "Protocol Buffers",
+        "Redis",
+        "SQL",
+        "Shell",
+        "Testing",
+        "gRPC"
+      ]
+    },
+    {
+      "link": "https://github.com/dstout-devops/pulsar",
+      "name": "Pulsar",
+      "problem": "Copilot plus agents plus MCP plus a personal access token is far too much for an ordinary user. Most senior principals do not know what an MCP is \u2014 and the people who most need the answers are non-technical staff losing hours a day searching Confluence, Bitbucket, Jira and SharePoint by hand.",
+      "scale": "Replaces hours a day of manual search per person with a question box, and makes the result governable and shareable instead of something each person rediscovers alone. Setup that previously needed a technical owner per user becomes one managed deployment.",
+      "simplification": "Ask a question, get the answer. Configuration, governance and sharing sit behind a web front, so the user never has to meet any of it.",
+      "slug": "pulsar",
+      "summary": "Self-service agent and MCP configuration console \u2014 TypeScript monorepo.",
+      "tech": [
+        "CSS",
+        "Docker",
+        "Docker Compose",
+        "Go Template",
+        "HTML",
+        "Helm",
+        "JavaScript",
+        "Node.js",
+        "React",
+        "Shell",
+        "Testing",
+        "TypeScript"
+      ]
+    },
+    {
+      "link": "https://github.com/dstout-devops/service-nebula",
+      "name": "Service Nebula",
+      "problem": "Standing up a complete Kubernetes service means composing a cluster, a CNI, ingress, certificates and a secrets backend, each with its own install path and ordering constraints \u2014 knowledge that usually lives in a runbook.",
+      "scale": "The predecessor to Stratt, and deliberately narrower: Kubernetes only. It proved the deployment methodology that Stratt generalises \u2014 that the composition and its ordering are the artefact worth keeping, not the individual components.",
+      "simplification": "One Terragrunt tree that stands the whole estate up from an empty machine, ordering included.",
+      "slug": "service-nebula",
+      "summary": "A Terragrunt-driven Terraform configuration that provisions a Kubernetes cluster with cert-manager, Helm-installed components, and a registry proxy, gated by a pull request self-audit workflow.",
+      "tech": [
+        "Cilium",
+        "Docker",
+        "GitHub Actions",
+        "HCL",
+        "HashiCorp Vault",
+        "Helm",
+        "Kubernetes",
+        "OpenTofu",
+        "Shell",
+        "Terraform",
+        "Terragrunt",
+        "Traefik",
+        "cert-manager"
+      ]
+    },
+    {
+      "link": "https://github.com/dstout-devops/stratt",
+      "name": "Stratt",
+      "problem": "Infrastructure is fracturing, not converging. One team runs vSphere across sites it cannot manage centrally, another is trying to make Ansible and Terraform agree, another is reeling in a dozen disparate Kubernetes estates, and another is still trying to stand up a single device. Configuration-as-code answers none of it, because each tool only configures its own corner.",
+      "scale": "A capability is written once and is then available everywhere. Teach the graph to get a certificate and the whole estate can get certificates; teach it to write a file on a VM and everything with a VM inherits it. The pairwise integration between N tools and M platforms collapses into N + M plugins against a single contract.",
+      "simplification": "Estate-as-code: define the entire estate as a typed graph and act on it, so every tool is a plugin against one contract rather than another integration.",
+      "slug": "stratt",
+      "summary": "A multi-module Go monorepo with a TypeScript frontend and PLpgSQL database functions, organised around hash-pinned JSON Schema contracts, with Docker-based dev environments.",
+      "tech": [
+        "AWS",
+        "CSS",
+        "Database Migrations",
+        "Docker",
+        "Docker Compose",
+        "GitHub Actions",
+        "Go",
+        "Go Template",
+        "HCL",
+        "HTML",
+        "Helm",
+        "JavaScript",
+        "Kubernetes",
+        "OpenTelemetry",
+        "PLpgSQL",
+        "PostgreSQL",
+        "Prometheus",
+        "Protocol Buffers",
+        "Pytest",
+        "Python",
+        "Rego",
+        "SQL",
+        "Shell",
+        "Terraform",
+        "Testing",
+        "TypeScript",
+        "gRPC"
+      ]
+    }
+  ],
+  "totals": {
+    "capabilities": 58,
+    "public_projects": 4,
+    "repositories": 34
+  }
+}
