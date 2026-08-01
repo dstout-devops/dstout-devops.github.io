@@ -33,6 +33,10 @@ const e = (value) =>
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#39;");
 
+/** Where this page is published. Used for canonical, sharing, and to keep the
+ *  page from linking to itself. */
+const SITE = "https://dstout-devops.github.io/";
+
 /** Capabilities found in fewer repositories than this are left off. */
 const FLOOR = 3;
 
@@ -147,7 +151,16 @@ export function render(content) {
     const { candidate, totals, generated_at } = content;
     const projects = readingOrder(content.projects);
 
-    const links = Object.entries(candidate.links)
+    // The profile lists this site under `website`, because that is the key
+    // application autofill reads for a portfolio field. Here it would render
+    // as a link back to the page you are already on, so it is dropped from
+    // the nav — but kept in sameAs below, where a machine reading the page
+    // does want to know the two are the same person.
+    const elsewhere = Object.entries(candidate.links).filter(
+        ([, url]) => url.replace(/\/$/, "") !== SITE.replace(/\/$/, ""),
+    );
+
+    const links = elsewhere
         .map(
             ([name, url]) =>
                 `<a href="${e(url)}" target="_blank" rel="noreferrer noopener"
@@ -161,7 +174,7 @@ export function render(content) {
         "@context": "https://schema.org",
         "@type": "Person",
         name: candidate.name,
-        url: "https://dstout-devops.github.io/",
+        url: SITE,
         ...(candidate.headline ? { description: candidate.headline } : {}),
         sameAs: Object.values(candidate.links),
     };
@@ -173,10 +186,10 @@ export function render(content) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${e(candidate.name)} — platform engineering</title>
     <meta name="description" content="${e(candidate.headline || "Most complexity is misunderstanding wearing a costume.")}" />
-    <link rel="canonical" href="https://dstout-devops.github.io/" />
+    <link rel="canonical" href="${SITE}" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dstout-devops.github.io/" />
+    <meta property="og:url" content="${SITE}" />
     <meta property="og:title" content="${e(candidate.name)} — platform engineering" />
     <meta property="og:description" content="Most complexity is misunderstanding wearing a costume." />
     <meta name="twitter:card" content="summary" />

@@ -4,7 +4,8 @@
     "headline": "Platform and infrastructure engineering \u2014 the layer other teams build on.",
     "links": {
       "github": "https://github.com/dstout-devops",
-      "linkedin": "https://www.linkedin.com/in/danstout"
+      "linkedin": "https://www.linkedin.com/in/danstout",
+      "website": "https://dstout-devops.github.io"
     },
     "name": "Dan Stout"
   },
@@ -300,7 +301,7 @@
       "repositories": 1
     }
   ],
-  "generated_at": "2026-08-01T18:37:35+00:00",
+  "generated_at": "2026-08-01T18:49:57+00:00",
   "projects": [
     {
       "link": "https://github.com/dstout-devops/forge-of-prospects",
