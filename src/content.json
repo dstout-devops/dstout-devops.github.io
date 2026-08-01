@@ -1,5 +1,7 @@
 {
   "candidate": {
+    "based": "Remote-first \u00b7 St Louis, MO",
+    "headline": "Platform and infrastructure engineering \u2014 I find the contract that makes the integration unnecessary.",
     "links": {
       "github": "https://github.com/dstout-devops",
       "linkedin": "https://www.linkedin.com/in/danstout"
@@ -298,37 +300,37 @@
       "repositories": 1
     }
   ],
-  "generated_at": "2026-08-01T01:35:00+00:00",
+  "generated_at": "2026-08-01T02:30:11+00:00",
   "projects": [
     {
       "link": "https://github.com/dstout-devops/forge-of-prospects",
-      "name": "Forge Of Prospects",
+      "name": "Forge of Prospects",
       "problem": "Getting young athletes to train consistently competes directly with the phone in their pocket, and it is consistency rather than ability that they drop out over.",
       "scale": "Coach attention is the scarce resource and it does not scale past the session. Team management and visible standings keep the competition running between sessions, so the motivation does not depend on a coach being in the room.",
       "simplification": "Put the thing that makes them want to train on the device that was competing for their attention: training as quests, progression as ranks, teammates to compete against.",
       "slug": "forge-of-prospects",
       "summary": "A Flutter client over a Go backend with PLpgSQL database code, built through a Taskfile, containerised with Docker Compose, and released by separate frontend and backend GitHub Actions workflows.",
       "tech": [
-        "Dart",
-        "Database Migrations",
-        "Docker",
-        "Docker Compose",
         "Firebase",
-        "Flutter",
         "Flutter Bloc",
-        "GitHub Actions",
-        "Go",
-        "HTML",
+        "Redis",
+        "Dart",
+        "Flutter",
         "Nginx",
+        "Database Migrations",
         "OpenTelemetry",
         "PLpgSQL",
         "PostgreSQL",
         "Protocol Buffers",
-        "Redis",
+        "gRPC",
         "SQL",
-        "Shell",
+        "GitHub Actions",
+        "HTML",
+        "Go",
+        "Docker Compose",
         "Testing",
-        "gRPC"
+        "Shell",
+        "Docker"
       ]
     },
     {
@@ -340,18 +342,18 @@
       "slug": "pulsar",
       "summary": "Self-service agent and MCP configuration console \u2014 TypeScript monorepo.",
       "tech": [
-        "CSS",
-        "Docker",
-        "Docker Compose",
-        "Go Template",
-        "HTML",
-        "Helm",
-        "JavaScript",
         "Node.js",
         "React",
-        "Shell",
+        "CSS",
+        "Go Template",
+        "JavaScript",
+        "TypeScript",
+        "Helm",
+        "HTML",
+        "Docker Compose",
         "Testing",
-        "TypeScript"
+        "Shell",
+        "Docker"
       ]
     },
     {
@@ -364,18 +366,18 @@
       "summary": "A Terragrunt-driven Terraform configuration that provisions a Kubernetes cluster with cert-manager, Helm-installed components, and a registry proxy, gated by a pull request self-audit workflow.",
       "tech": [
         "Cilium",
-        "Docker",
-        "GitHub Actions",
-        "HCL",
         "HashiCorp Vault",
-        "Helm",
-        "Kubernetes",
         "OpenTofu",
-        "Shell",
-        "Terraform",
         "Terragrunt",
         "Traefik",
-        "cert-manager"
+        "cert-manager",
+        "Kubernetes",
+        "HCL",
+        "Terraform",
+        "Helm",
+        "GitHub Actions",
+        "Shell",
+        "Docker"
       ]
     },
     {
@@ -387,33 +389,33 @@
       "slug": "stratt",
       "summary": "A multi-module Go monorepo with a TypeScript frontend and PLpgSQL database functions, organised around hash-pinned JSON Schema contracts, with Docker-based dev environments.",
       "tech": [
+        "Rego",
         "AWS",
+        "Kubernetes",
+        "Prometheus",
         "CSS",
         "Database Migrations",
-        "Docker",
-        "Docker Compose",
-        "GitHub Actions",
-        "Go",
         "Go Template",
-        "HCL",
-        "HTML",
-        "Helm",
-        "JavaScript",
-        "Kubernetes",
         "OpenTelemetry",
         "PLpgSQL",
         "PostgreSQL",
-        "Prometheus",
         "Protocol Buffers",
-        "Pytest",
-        "Python",
-        "Rego",
-        "SQL",
-        "Shell",
+        "HCL",
+        "JavaScript",
         "Terraform",
-        "Testing",
         "TypeScript",
-        "gRPC"
+        "gRPC",
+        "Helm",
+        "Pytest",
+        "SQL",
+        "Python",
+        "GitHub Actions",
+        "HTML",
+        "Go",
+        "Docker Compose",
+        "Testing",
+        "Shell",
+        "Docker"
       ]
     }
   ],

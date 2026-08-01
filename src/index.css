@@ -7,6 +7,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
+/* Class names live in the renderer rather than in components, so point the
+   scanner at it explicitly instead of relying on where the CSS happens to
+   sit. content.json is excluded: it is prose, and a capability named "Helm"
+   or a sentence containing "block" would otherwise generate utilities for
+   classes nobody wrote. */
+@source "./render.js";
+@source "./content.js";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -222,6 +230,78 @@
   inset: 0;
   opacity: var(--grain);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Each case study arrives and departs with the scroll.
+ *
+ * This is a rendering effect, so it belongs on the compositor, not in a
+ * component. Driving it from JavaScript would mean scroll position becoming
+ * application state and a re-render every frame on the main thread — for an
+ * animation the browser can run without ever waking it.
+ *
+ * Three guards, and all three matter:
+ *
+ *  - @supports, because animation-timeline is Chrome/Edge 115+ and Safari 26+
+ *    but is still Nightly-only in Firefox. Content is fully visible by
+ *    default and this only ever takes it away, so a browser without the
+ *    feature loses the flourish and nothing else. Written the other way
+ *    round — hidden by default, revealed on scroll — Firefox would render a
+ *    blank page.
+ *  - prefers-reduced-motion, because motion tied to scrolling is the kind
+ *    that actually makes people ill.
+ *  - the sections stay in the DOM. Fading is a visual state; removing them
+ *    would take them from Ctrl+F, from screen readers, and from anything
+ *    that indexes the page, which for this page is the whole point of it.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scene {
+      /* Longhands throughout, deliberately. The `animation` shorthand lists
+         animation-timeline as a reset-only component, so it silently undoes
+         the timeline; and a shorthand without a <time> does not reliably
+         resolve duration to `auto`, which is the value that hands pacing to
+         the scroll instead of the clock. Written as a shorthand this rule
+         parsed, applied, and did nothing at all. */
+      animation-name: rise, recede;
+      animation-duration: auto, auto;
+      animation-timing-function: linear, linear;
+      animation-fill-mode: both, both;
+      animation-timeline: view(), view();
+      /* These articles are taller than the viewport, which is what makes the
+         ranges delicate: an element's exit phase begins while a good part of
+         it is still on screen and being read. So arrival finishes early —
+         within the first third of entry, rather than leaving a blank void
+         where the next section should be — and departure starts late, once
+         most of it has genuinely gone. */
+      animation-range:
+        entry 0% entry 30%,
+        exit 70% exit 100%;
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes recede {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
 }
 
 /* Flipping the theme animates every colour on the page at once, which reads
