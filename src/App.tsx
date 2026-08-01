@@ -8,7 +8,12 @@ export default function App() {
 
   return (
     <div className="mx-auto min-h-dvh max-w-3xl px-6 sm:px-8">
-      <div className="ambient" aria-hidden="true" />
+      <div className="ambient" aria-hidden="true">
+        <span className="glow glow-magenta" />
+        <span className="glow glow-cyan" />
+        <span className="glow glow-green" />
+        <span className="glow glow-violet" />
+      </div>
       <a
         href="#work"
         className="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded-lg focus:border focus:bg-[color:var(--background)] focus:px-4 focus:py-2"

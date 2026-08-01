@@ -116,30 +116,76 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(36rem 28rem at 0% -10%, var(--glow-magenta), transparent 62%),
-    radial-gradient(28rem 24rem at 104% 2%, var(--glow-cyan), transparent 60%),
-    radial-gradient(38rem 24rem at 78% 110%, var(--glow-green), transparent 62%),
-    radial-gradient(24rem 34rem at -12% 76%, var(--glow-violet), transparent 60%);
+}
+
+/* Each source is its own layer so each can breathe on its own clock. One
+   animation across the whole background would pump every corner in unison,
+   which is a heartbeat rather than a room. The periods below are primes, so
+   the four never realign into a pattern you could catch; a full breath takes
+   between forty seconds and a minute, which is slow enough that you notice
+   the page changed rather than watching it change. */
+.glow {
+  position: absolute;
+  inset: 0;
+  animation: breathe var(--period) ease-in-out var(--phase) infinite alternate;
+}
+
+.glow-magenta {
+  --period: 79s;
+  --phase: -13s;
+  background: radial-gradient(36rem 28rem at 0% -10%, var(--glow-magenta), transparent 62%);
+}
+
+.glow-cyan {
+  --period: 97s;
+  --phase: -41s;
+  background: radial-gradient(28rem 24rem at 104% 2%, var(--glow-cyan), transparent 60%);
+}
+
+.glow-green {
+  --period: 113s;
+  --phase: -67s;
+  background: radial-gradient(38rem 24rem at 78% 110%, var(--glow-green), transparent 62%);
+}
+
+.glow-violet {
+  --period: 131s;
+  --phase: -23s;
+  background: radial-gradient(24rem 34rem at -12% 76%, var(--glow-violet), transparent 60%);
+}
+
+/* The amplitude has to be small enough that you cannot catch it moving, only
+   notice afterwards that it did. Opacity does the work; the scale is there so
+   the falloff edge shifts by a few pixels a minute rather than sitting
+   perfectly still, which is what makes a static gradient look printed on. */
+@keyframes breathe {
+  from {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.06);
+  }
 }
 
 /* The other half of the reference: the sharing badge's magenta-green-cyan
-   edge. One hairline at the very top, and nowhere else \u2014 it works because it
+   edge. One hairline at the very top, and nowhere else — it works because it
    is the only hard-edged colour on the page, so repeating it would spend the
    thing that makes it read as a signature. */
 .ambient::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
+  z-index: 1;
   height: 2px;
   opacity: 0.75;
-  background: linear-gradient(
-    90deg,
-    oklch(0.62 0.24 330),
-    oklch(0.55 0.22 285),
-    oklch(0.7 0.14 205),
-    oklch(0.75 0.17 152)
-  );
+  background: linear-gradient(90deg,
+      oklch(0.62 0.24 330),
+      oklch(0.55 0.22 285),
+      oklch(0.7 0.14 205),
+      oklch(0.75 0.17 152));
 }
 
 /* Wide, soft gradients over a near-flat dark background band, and banding is
@@ -182,10 +228,16 @@
 
 @media (prefers-reduced-motion: reduce) {
 
+  /* iteration-count is the part that matters, and the usual snippet leaves it
+     out. Duration alone does not stop an infinite alternate animation — it
+     runs it about a hundred thousand times a second, and the browser samples
+     one arbitrary point per frame, so a request for less motion produces a
+     strobing background. Forcing a single iteration lets it settle. */
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
